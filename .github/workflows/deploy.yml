@@ -1,0 +1,30 @@
+name: Deploy to RunPod
+
+on:
+  workflow_dispatch:  # Manual trigger only
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Install RunPod CLI
+      run: |
+        pip install runpod
+    
+    - name: Configure RunPod CLI
+      run: |
+        runpod config --api_key "${{ secrets.RUNPOD_API_KEY }}"
+    
+    - name: Deploy to RunPod
+      run: |
+        echo "🚀 Deploying to RunPod..."
+        runpodctl create pod --config runpod.toml
+    
+    - name: Display deployment info
+      run: |
+        echo "✅ Deployment completed successfully!"
+        echo "🚀 Check your RunPod console for endpoint status"
