@@ -9,7 +9,6 @@ import time
 import uuid
 from typing import Dict, Any, Optional
 from PIL import Image
-
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
