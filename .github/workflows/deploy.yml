@@ -17,7 +17,7 @@ jobs:
     
     - name: Configure RunPod CLI
       run: |
-        runpod config --api_key "${{ secrets.RUNPOD_API_KEY }}"
+        runpod config "${{ secrets.RUNPOD_API_KEY }}"
     
     - name: Deploy to RunPod
       run: |
