@@ -22,7 +22,7 @@ jobs:
     - name: Deploy to RunPod
       run: |
         echo "🚀 Deploying to RunPod..."
-        runpod pod create --config runpod.toml
+        runpod deploy
     
     - name: Display deployment info
       run: |
